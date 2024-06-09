@@ -9,6 +9,7 @@ class ArticleAI{
 
         this.message = [
             { role: 'user', content: `you are expert in creating seo article that will rank on google. your task is to create article from this main keyword "${this.keyword}" with following specifications:
+            Article Length: 1000 word (mendatory)
             Tone and Language: The tone should be friendly and the language should be English. 
             POV and Geographic Target: The article should be written from a neutral point of view and targeted at a US audience. 
             basic seo:
@@ -17,9 +18,9 @@ class ArticleAI{
             - Focus Keyword should appear at the beginning of your content.
             - Focus Keyword found in the content.
             additiona seo:
-            - Focus Keyword should be found in subheading(s) like H2, H3, H4, etc..
+            - Focus Keyword should be found in subheadings this mendatory
             - Add placeholder keyword image with Focus Keyword as alt text.
-            - Keyword Density at least 1%
+            - Keyword Density at least 1%. this mendatory
             - Link out to external resources.
             - Add DoFollow links pointing to external resources.
             title readability:
@@ -43,15 +44,32 @@ class ArticleAI{
             - Tags
             - Categories
             - Article Content: Markdown Format
-            - The article should end with the author's name: "Fr4nk"
+            - The article should end with the author's name: "Article By Fr4nk"
              
-            NOTE: Please ensure that the generated article meets all the requirements of "content readability" and provides high-quality content.` }
+            NOTE: Please ensure that i dont want an outline. i want fully generated article that meets all the requirements of "content readability" and provides high-quality content.` }
         ]
-        // this.message = [
-        //     { role: 'user', content: `hi` }
-        // ]
+        
         const stream = true
-        new TextCompletion(this.message, stream).run()
+
+        let articleOutput = ''
+
+        while(true){
+            const response = await new TextCompletion(this.message, stream).run()
+
+            if(response.includes('Article By Fr4nk')) break;
+            if(response.trim.length < 1) console.info(`\nBLANK\n`)
+
+
+            articleOutput += response
+
+            this.message.push(
+                { role: "system", content: response },
+                { role: "user", content: "write more" }
+            )
+        }
+
+
+        return;
     }
 
 

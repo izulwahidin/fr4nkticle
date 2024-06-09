@@ -11,7 +11,6 @@ class TextCompletion{
             this.gpt4all = new OpenAI({
                 apiKey: process.env.OPENAI_API,
                 baseURL: process.env.OPENAI_BASE_URL,
-                max_tokens: process.env.OPENAI_MAX_TOKEN
             });
 
             this.is_steam = is_steam
@@ -41,12 +40,12 @@ class TextCompletion{
                 process.stdout.write(text);
                 result += text
             }
-
-            console.log(completion)
         }else {
             completion = await this.gpt4all.chat.completions.create(config)
             result = completion.choices[0].message
         }
+
+
         return result
     }
 }
