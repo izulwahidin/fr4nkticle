@@ -30,20 +30,20 @@ class ArticleAI{
             - use number in SEO title.
             content readability:
             - key takeaway
-            - short paragraphs.
-            - tables on each paragraphs if possible
-            - quotes on each paragraphs if possible
+            - Brief, concise, and clear paragraphs.
+            - tables on headings if possible, but make sure you add atleast 2
+            - quotes on headings if possible, but make sure you add atleast 3
             - images from unsplash
             - videos from youtube
-            - Tips on each paragraphs if possible
-            - Q&A as closing article
+            - Tips on headings if possible , but make sure you add atleast 3
+            - Q&A
             formatting elements: italic, quotes, lists, & bold
             Output: Provide the following outputs:
             - SEO Title
             - SEO Description
             - Tags
             - Categories
-            - Article Content: Markdown Format
+            - Article Content: in Markdown Format
             - The article should end with the author's name: "Article By Fr4nk"
              
             NOTE: Please ensure that i dont want an outline. i want fully generated article that meets all the requirements of "content readability" and provides high-quality content.` }
