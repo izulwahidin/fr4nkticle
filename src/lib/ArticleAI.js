@@ -9,7 +9,7 @@ class ArticleAI{
 
         this.message = [
             { role: 'user', content: `you are expert in creating seo article that will rank on google. your task is to create article from this main keyword "${this.keyword}" with following specifications:
-            Article Length: 1000 word (mendatory)
+            data: fetch at least 10 credible sources for this task
             Tone and Language: The tone should be friendly and the language should be English. 
             POV and Geographic Target: The article should be written from a neutral point of view and targeted at a US audience. 
             basic seo:
